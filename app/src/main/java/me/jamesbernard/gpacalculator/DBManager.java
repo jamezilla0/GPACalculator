@@ -30,7 +30,7 @@ public class DBManager extends SQLiteOpenHelper {
             switch (table){
                 case "user":
                     columns = new String[][]{
-                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
+                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE"},
                             {"name", "VARCHAR(150)"},
                             {"email", "VARCHAR(150)"}
                     };
@@ -52,7 +52,7 @@ public class DBManager extends SQLiteOpenHelper {
                     break;
                 case "course_assignments":
                     columns = new String[][]{
-                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
+                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE"},
                             {"course_id", "INTEGER DEFAULT 0"},
                             {"name", "TEXT"},
                             {"weight", "FLOAT"}
@@ -60,7 +60,7 @@ public class DBManager extends SQLiteOpenHelper {
                     break;
                 case "graded_asignments":
                     columns = new String[][]{
-                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
+                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE"},
                             {"course_id", "INTEGER DEFAULT 0"},
                             {"assignment_type", "TEXT"},
                             {"title", "TEXT"},
