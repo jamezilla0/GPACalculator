@@ -37,7 +37,7 @@ public class DBManager extends SQLiteOpenHelper {
                     break;
                 case "courses":
                     columns = new String[][]{
-                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
+                            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE"},
                             {"year", "INTEGER DEFAULT 2016"},
                             {"semester", "STRING"},
                             {"user_id", "INTEGER"},
