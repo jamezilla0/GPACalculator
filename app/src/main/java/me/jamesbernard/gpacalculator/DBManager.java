@@ -44,7 +44,7 @@ public class DBManager extends SQLiteOpenHelper {
                             {"name", "TEXT"},
                             {"professor", "TEXT"},
                             {"credit_hours", "INTEGER"},
-                            {"meet_times", "INTEGER DEFAULT 0"},
+                            {"meet_times", "INTEGER DEFAULT 1"},
                             {"grade_number", "INTEGER DEFAULT 0"},
                             {"grade_letter", "VARCHAR(2) DEFAULT 'F'"},
                             {"grade_point_average", "FLOAT DEFAULT 0.0"}
@@ -53,7 +53,7 @@ public class DBManager extends SQLiteOpenHelper {
                 case "course_assignments":
                     columns = new String[][]{
                             {"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE"},
-                            {"course_id", "INTEGER DEFAULT 0"},
+                            {"course_id", "INTEGER"},
                             {"name", "TEXT"},
                             {"weight", "FLOAT"}
                     };
@@ -61,7 +61,7 @@ public class DBManager extends SQLiteOpenHelper {
                 case "graded_asignments":
                     columns = new String[][]{
                             {"id", "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE"},
-                            {"course_id", "INTEGER DEFAULT 0"},
+                            {"course_id", "INTEGER"},
                             {"assignment_type", "TEXT"},
                             {"title", "TEXT"},
                             {"grade_number", "INTEGER DEFAULT 0"},
@@ -70,20 +70,30 @@ public class DBManager extends SQLiteOpenHelper {
             }
 
             columnList.add(columns);
+            // Column count, it will incriment based on columns for loop.
             int cCount = 1;
+            // Start create table query which will get appended in the columns for loop
             String query = "CREATE TABLE " + table + "(";
+            // This will be placed between each column
             String append = "";
+            // Start columns for loop
             for(String[] column : columns){
-
+                // If the columns length is more than one or column count is less than columns length
                 if(columns.length > 1 && cCount < columns.length){
+                    // Add a comma after the column and its settings
                     append = ",";
+                    // Increase column count.
                     cCount++;
-                }else append = "";
+                }else append = ""; // Else return delimiter to null
+                String columnName = column[0];
+                String columnSettings = column[1];
 
-                query += "" + column[0] + " " + column[1] + append;
+                // Middle of query
+                query += columnName  + " " + columnSettings + append;
             }
+            // End of query
             query += ");";
-
+            // Execute query.
             db.execSQL(query);
         }
     }
