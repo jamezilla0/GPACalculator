@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="me.jamesbernard.gpacalculator.CourseForm">
+    <TextView
+        android:id="@+id/courseTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Course Name:"
+        android:layout_centerHorizontal="true"
+        android:width="250dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/courseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:width="250dp"
+        android:layout_below="@id/courseTitleLabel"
+        android:inputType="text"
+        android:text="Algebra 1101" />
+
+    <TextView
+        android:id="@+id/courseCreditHoursLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credit Hours:"
+        android:layout_centerHorizontal="true"
+        android:width="250dp"
+        android:layout_below="@+id/courseName"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/courseCreditHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/courseCreditHoursLabel"
+        android:width="250dp"
+        android:inputType="number"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/courseProfessorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Professor:"
+        android:layout_centerHorizontal="true"
+        android:width="250dp"
+        android:layout_below="@+id/courseCreditHours"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/courseProfessor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/courseProfessorLabel"
+        android:width="250dp"
+        android:inputType="text"
+        android:text="John Doe" />
+
+    <TextView
+        android:id="@+id/courseMeetTimesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meet times / wk:"
+        android:layout_centerHorizontal="true"
+        android:width="250dp"
+        android:layout_below="@+id/courseProfessor"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/courseMeetTimes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/courseMeetTimesLabel"
+        android:width="250dp"
+        android:inputType="number"
+        android:text="1" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/courseMeetTimes">
+
+        <Button
+            android:id="@+id/addCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Course"
+            android:textColor="#ffffff"
+            android:background="#2ecc71"
+            android:padding="10dp"
+            android:layout_below="@+id/courseMeetTimes"
+            android:layout_alignStart="@+id/courseMeetTimes"
+            android:layout_gravity="bottom"
+            android:layout_weight="1.09"
+            android:onClick="saveCourse" />
+
+        <Button
+            android:id="@+id/removeCourse"
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:text="Remove Course"
+            android:textColor="#ffffff"
+            android:background="#e74c3c"
+            android:padding="10dp"
+            android:layout_alignTop="@+id/addCourse"
+            android:layout_toEndOf="@+id/addCourse"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.27" />
+    </LinearLayout>
+
+
+</RelativeLayout>

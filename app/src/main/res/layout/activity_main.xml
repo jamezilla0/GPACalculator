@@ -9,10 +9,4 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.jamesbernard.gpacalculator.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView2" />
-
 </RelativeLayout>

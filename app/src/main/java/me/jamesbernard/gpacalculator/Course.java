@@ -10,6 +10,8 @@ public class Course {
     private ArrayList<Grade> grades = new ArrayList<Grade>();
     private int creditHours = 1;
     private Grade grade;
+    private String professor;
+    private int meetTimes;
 
     public Course(String title, int creditHours){
         this.grade = new Grade();
@@ -40,6 +42,33 @@ public class Course {
 
     public void setCreditHours(int creditHours) {
         this.creditHours = creditHours;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
+    public String getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(String professor) {
+        this.professor = professor;
+    }
+
+    public int getMeetTimes() {
+        return meetTimes;
+    }
+
+    public void setMeetTimes(int meetTimes) {
+        this.meetTimes = meetTimes;
     }
 
 

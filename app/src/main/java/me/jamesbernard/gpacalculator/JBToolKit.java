@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.zip.Inflater;
 
@@ -76,5 +77,14 @@ public class JBToolKit {
         anchorView.getLocationOnScreen(location);
 
         popupWindow.showAtLocation(anchorView, Gravity.NO_GRAVITY, location[0], location[1] + anchorView.getHeight());
+    }
+
+    public boolean filledOut(String name, TextView input){
+        if(input.isDirty() || input.getText().toString().trim().equals("")){
+            input.setHint(name + " is required");
+            return false;
+        }
+
+        return true;
     }
 }

@@ -1,37 +1,44 @@
 package me.jamesbernard.gpacalculator;
 
 import android.content.Intent;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.graphics.Color;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
     // Holds a list of all menu buttons for this activity;
     public static ArrayList<MenuButton> menuButtons = new ArrayList<MenuButton>();
     // Holds a list of all textlabels for this activity
     public static ArrayList<TextLabel> textLabels = new ArrayList<TextLabel>();
+    private GestureDetectorCompat gestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.gestureDetector = new GestureDetectorCompat(this, this);
+        gestureDetector.setOnDoubleTapListener(this);
 
         // Layout
         RelativeLayout mainLayout = new RelativeLayout(this);
 
 
         // gpa input button
-        MenuButton giButton = new MenuButton(this, 1, "Grade Input");
+        MenuButton giButton = new MenuButton(this, 1, "Add Course");
         // gpa input click listener.
         giButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
                 // Initialize intent to change activity from this to GradeInput activity
-                Intent intent = new Intent(MainActivity.this, GradeInput.class);
+                Intent intent = new Intent(MainActivity.this, CourseForm.class);
                 // Start activity from intent
                 startActivity(intent);
             }
@@ -86,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         // If bundle is not null
         if(bundle != null){
-            // get the gpa from bundle params.
-            gpaVal = String.valueOf(bundle.get("GPA"));
-            // get gpa letter value from bundle params
-            gpaLetter = String.valueOf(bundle.get("GPALetter"));
+//            // get the gpa from bundle params.
+//            gpaVal = String.valueOf(bundle.get("GPA"));
+//            // get gpa letter value from bundle params
+//            gpaLetter = String.valueOf(bundle.get("GPALetter"));
         }
         // Create a new text label to display the GPA value
         TextLabel gpaOutPut = new TextLabel(this, 5, gpaVal);
@@ -142,5 +149,62 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mainLayout);
         // Change this layouts background based off of the current gpa
         mainLayout.setBackgroundColor(Settings.getGpaBgColor(Double.parseDouble(gpaOutPut.getText().toString())));
+    }
+// Start gestures
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        Intent intent = new Intent(MainActivity.this, CourseGpa.class);
+        startActivity(intent);
+        Toast toast = Toast.makeText(MainActivity.this, "Switched to course view", Toast.LENGTH_LONG);
+        toast.show();
+        return true;
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+//    end gestures
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 }

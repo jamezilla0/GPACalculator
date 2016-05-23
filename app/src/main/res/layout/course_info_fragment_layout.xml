@@ -1,0 +1,172 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.jamesbernard.gpacalculator.CourseInfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+    <TextView
+        android:layout_width="383dp"
+        android:layout_height="65dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Course Name"
+        android:id="@+id/courseName"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.50">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Letter Grade"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="F"
+                android:id="@+id/letterGrade"
+                android:layout_gravity="center_horizontal"
+                android:textSize="50dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.50" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Number Grade"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/numberGrade"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="%"
+                    android:id="@+id/textView2" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gpaContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="151dp"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:paddingTop="15dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Grade Point Average"
+            android:id="@+id/textView7"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0.0"
+            android:id="@+id/gradeAverage"
+            android:layout_gravity="center_horizontal"
+            android:textSize="100dp" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="213dp"
+            android:layout_row="4"
+            android:layout_column="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Asignments"
+                android:id="@+id/textView6"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:textAlignment="center"
+                android:paddingTop="0dp"
+                android:textSize="30dp"
+                android:textColor="@android:color/holo_red_light" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="84dp"
+            android:id="@+id/listView"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="2.23"
+            android:divider="@color/dim_foreground_material_light"
+            android:dividerHeight="2dp"
+            android:clickable="true"
+            android:contextClickable="false"
+            android:foreground="@android:color/transparent"
+            android:smoothScrollbar="true"
+            android:textColor="#ffffff"/>
+        </LinearLayout>
+
+    </GridLayout>
+</FrameLayout>
