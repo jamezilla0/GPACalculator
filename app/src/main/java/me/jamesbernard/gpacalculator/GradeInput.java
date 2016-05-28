@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -74,7 +72,7 @@ public class GradeInput extends AppCompatActivity {
         calculateGpaButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Double gpaVal = Calculator.calculate(gradeList);
+                Double gpaVal = Calculator.getGpa(gradeList);
                 Double gpa = Grade.decrypt.parseToGpa(gpaVal);
                 Bundle bundle = new Bundle();
                 bundle.putDouble("GPA", gpa);
